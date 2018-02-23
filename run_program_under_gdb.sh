@@ -1,19 +1,21 @@
 #!/bin/bash
-echo $1
+
+# $1 - nazwa programu ktory bedzie nadzorowany
+# $2 - nazwa pliku do ktorego zostanie zrobiony log
 
 DATE=`date '+%Y-%m-%d %H:%M:%S'`
 
-echo "************************************" >> log.txt
-echo "******* START Debug Session ********" >> log.txt
-echo "****** " $DATE " *******" >> log.txt
-echo "************************************" >> log.txt
-printf "\n" >> log.txt
+echo "************************************" >> $2
+echo "******* START Debug Session ********" >> $2
+echo "****** " $DATE " *******" >> $2
+echo "************************************" >> $2
+printf "\n" >> $2
 
-gdb -q -batch -ex run $1 >> log.txt
+gdb -q -batch -ex run $1 >> $2
 
-printf "\n" >> log.txt
-echo "************************************" >> log.txt
-echo "******* STOP Debug Session ********" >> log.txt
-echo "************************************" >> log.txt
-printf "\n\n\n\n" >> log.txt
+printf "\n" >> $2
+echo "************************************" >> $2
+echo "******* STOP Debug Session ********" >> $2
+echo "************************************" >> $2
+printf "\n\n\n\n" >> $2
 
